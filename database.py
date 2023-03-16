@@ -23,7 +23,8 @@ class Database:
                 product_price INTEGER NOT NULL,
                 product_quantity INTEGER NOT NULL,
                 gender TEXT,
-                location TEXT
+                location TEXT,
+                branch TEXT
             )
         """)
 
@@ -43,7 +44,7 @@ class Database:
 
         # Insert the data into the 'customers' table
         self.cursor.executemany("""
-            INSERT INTO customers (purchase_date, customer_id, product_price, product_quantity, gender, location)
+            INSERT INTO customers (purchase_date, customer_id, product_price, product_quantity, gender, location, branch)
             VALUES (?, ?, ?, ?, ?, ?)
         """, data)
 
@@ -56,10 +57,10 @@ class Database:
         Returns:
             A list of tuples containing the data. Each tuple contains the following fields in order:
             purchase_date (datetime object), customer_id (int), product_price (int), product_quantity (int),
-            gender (str), location (str).
+            gender (str), location (str), branch (str).
         """
         self.cursor.execute("""
-            SELECT purchase_date, customer_id, product_price, product_quantity, gender, location
+            SELECT purchase_date, customer_id, product_price, product_quantity, gender, location, branch
             FROM customers
         """)
 
