@@ -37,7 +37,7 @@ class Database:
         Args:
             data: A list of tuples containing the data to be inserted. Each tuple should contain the following fields
                 in order: purchase_date (str or datetime object), customer_id (int), product_price (int), product_quantity (int),
-                gender (str), location (str).
+                gender (str), location (str), branch(str).
         """
         # Convert the purchase_date field to a datetime object if it's not already
         data = [(datetime.strptime(row[0], '%Y-%m-%d') if isinstance(row[0], str) else row[0], *row[1:]) for row in data]
