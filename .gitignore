@@ -1,6 +1,4 @@
 .venv
 venv/
 ENV/
-.zenq
-zenq/
-ENV/
+ 
