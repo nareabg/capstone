@@ -119,3 +119,6 @@ class Database:
 
     def get_gamma_prediction(self, customer_id):
         return self.session.query(GammaPredictions).filter_by(customer_id=customer_id).first()
+
+
+METADATA.CREATE_ALL(BIND=ENGINE)
